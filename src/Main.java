@@ -1,12 +1,13 @@
 // 17 sep 2024 Jonas N Övning-2 Klasser och Objekt. Skapa en Bank Account klass
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 public class Main {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        Account savingsAccount = new Account("Alice", 1000);
-        Account checkingAccount = new Account("Bob", 500);
+        Account savingsAccount = new Account("Sara", 1000);
+        Account checkingAccount = new Account("Jonas", 500);
 
         // Create an account using the default constructor
 //        Account savingsAccount = new Account();
@@ -38,23 +39,46 @@ public class Main {
             System.out.println("4. Show Balance");
             System.out.println("5. Exit");
             System.out.print("Choose an option: ");
-            int choice = scanner.nextInt();
+
+            int choice = 0;
+            try {
+                choice = scanner.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter a number.");
+                scanner.next(); // Clear the invalid input
+                continue;
+            }
 
             switch (choice) {
                 case 1:
                     System.out.print("Enter amount to deposit: ");
-                    double depositAmount = scanner.nextDouble();
-                    savingsAccount.deposit(depositAmount);
+                    try {
+                        double depositAmount = scanner.nextDouble();
+                        savingsAccount.deposit(depositAmount);
+                    } catch (InputMismatchException e) {
+                        System.out.println("Invalid input. Please enter a valid amount.");
+                        scanner.next(); // Clear the invalid input
+                    }
                     break;
                 case 2:
                     System.out.print("Enter amount to withdraw: ");
-                    double withdrawAmount = scanner.nextDouble();
-                    savingsAccount.withdraw(withdrawAmount);
+                    try {
+                        double withdrawAmount = scanner.nextDouble();
+                        savingsAccount.withdraw(withdrawAmount);
+                    } catch (InputMismatchException e) {
+                        System.out.println("Invalid input. Please enter a valid amount.");
+                        scanner.next(); // Clear the invalid input
+                    }
                     break;
                 case 3:
                     System.out.print("Enter amount to transfer: ");
-                    double transferAmount = scanner.nextDouble();
-                    savingsAccount.transferAmount(checkingAccount, transferAmount);
+                    try {
+                        double transferAmount = scanner.nextDouble();
+                        savingsAccount.transferAmount(checkingAccount, transferAmount);
+                    } catch (InputMismatchException e) {
+                        System.out.println("Invalid input. Please enter a valid amount.");
+                        scanner.next(); // Clear the invalid input
+                    }
                     break;
                 case 4:
                     System.out.println(savingsAccount);
