@@ -1,31 +1,31 @@
 public class Account {
 
-    // Instansvariabler
+    // Instance variables
     private String name;
     private double balance;
 
-    // Konstruktör som sätter balance till 0
+    // Constructor that sets balance to 0
     public Account() {
         this.balance = 0;
     }
 
-    // Konstruktör som tar in en balance
+    // Constructor that takes in a balance
     public Account(double balance) {
         this.balance = balance;
     }
 
-    // Konstruktör som tar in ett namn
+    // Constructor that takes in a name
     public Account(String name) {
         this.name = name;
     }
 
-    // Konstruktör som sätter både name och balance
+    // Constructor that sets both name and balance
     public Account(String name, double balance) {
         this.name = name;
         this.balance = balance;
     }
 
-    // Metod för att öka saldot
+    // Method to increase the balance
     public void deposit(double amount) {
         if (amount > 0) {
             balance += amount;
@@ -34,7 +34,7 @@ public class Account {
         }
     }
 
-    // Metod för att minska saldot
+    // Method to reduce the balance
     public void withdraw(double amount) {
         if (amount > 0 && amount <= balance) {
             balance -= amount;
@@ -43,22 +43,22 @@ public class Account {
         }
     }
 
-    // Metod för att läsa name
+    // Method to read name
     public String getName() {
         return name;
     }
 
-    // Metod för att skriva till ett namn
+    // Method to write to a name
     public void setName(String name) {
         this.name = name;
     }
 
-    // Metod för att läsa balance
+    // Method to read balance
     public double getBalance() {
         return balance;
     }
 
-    // Metod som returnerar en sträng med name och balance
+    // Method that returns a string with name and balance
     @Override
     public String toString() {
         return "Name: " + name + ", Balance: " + balance;
