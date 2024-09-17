@@ -10,16 +10,16 @@ public class Main {
         Account checkingAccount = new Account("Jonas", 500);
 
         // Create an account using the default constructor
-//        Account savingsAccount = new Account();
-//        savingsAccount.setName("Alice");
-//        savingsAccount.deposit(1000);
-//        System.out.println(savingsAccount);
+        Account savingsAccountAlice = new Account();
+        savingsAccountAlice.setName("Alice");
+        savingsAccount.deposit(1000);
+        System.out.println(savingsAccountAlice);
 
         // Create an account with balance
-//        Account checkingAccount = new Account(500);
-//        checkingAccount.setName("Bob");
-//        checkingAccount.withdraw(200);
-//        System.out.println(checkingAccount);
+        Account checkingAccountBob = new Account(500);
+        checkingAccountBob.setName("Bob");
+        checkingAccount.withdraw(200);
+        System.out.println(checkingAccountBob);
 
         // Create an account with name and balance
         Account businessAccount = new Account("Charlie", 1500);
