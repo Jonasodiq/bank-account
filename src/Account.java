@@ -63,4 +63,15 @@ public class Account {
     public String toString() {
         return "Name: " + name + ", Balance: " + balance;
     }
+
+    // Metod för att överföra pengar till ett annat konto
+    public void transferAmount(Account toAccount, double amount) {
+        if (amount > 0 && amount <= this.balance) {
+            this.withdraw(amount);
+            toAccount.deposit(amount);
+            System.out.println("Transferred " + amount + " from " + this.name + " to " + toAccount.getName());
+        } else {
+            System.out.println("Invalid amount or insufficient funds for transfer.");
+        }
+    }
 }
