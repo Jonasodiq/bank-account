@@ -33,18 +33,18 @@ public class Main {
         System.out.println("Current account holder: " + currentName);
 
         while (true) {
-            System.out.println("1. Deposit");
-            System.out.println("2. Withdraw");
-            System.out.println("3. Transfer");
-            System.out.println("4. Show Balance");
-            System.out.println("5. Exit");
+            System.out.println("1. Deposit \uD83D\uDCB5");
+            System.out.println("2. Withdraw \uD83D\uDCB8");
+            System.out.println("3. Transfer \uD83D\uDD01");
+            System.out.println("4. Show Balance \uD83C\uDFE6");
+            System.out.println("5. Exit \uD83D\uDD1A");
             System.out.print("Choose an option: ");
 
             int choice = 0;
             try {
                 choice = scanner.nextInt();
             } catch (InputMismatchException e) {
-                System.out.println("Invalid input. Please enter a number.");
+                System.out.println("Invalid input.❌ Please enter a number.");
                 scanner.next(); // Clear the invalid input
                 continue;
             }
@@ -56,7 +56,7 @@ public class Main {
                         double depositAmount = scanner.nextDouble();
                         savingsAccount.deposit(depositAmount);
                     } catch (InputMismatchException e) {
-                        System.out.println("Invalid input. Please enter a valid amount.");
+                        System.out.println("Invalid input.❌ Please enter a valid amount.");
                         scanner.next(); // Clear the invalid input
                     }
                     break;
@@ -66,7 +66,7 @@ public class Main {
                         double withdrawAmount = scanner.nextDouble();
                         savingsAccount.withdraw(withdrawAmount);
                     } catch (InputMismatchException e) {
-                        System.out.println("Invalid input. Please enter a valid amount.");
+                        System.out.println("Invalid input.❌ Please enter a valid amount.");
                         scanner.next(); // Clear the invalid input
                     }
                     break;
@@ -76,7 +76,7 @@ public class Main {
                         double transferAmount = scanner.nextDouble();
                         savingsAccount.transferAmount(checkingAccount, transferAmount);
                     } catch (InputMismatchException e) {
-                        System.out.println("Invalid input. Please enter a valid amount.");
+                        System.out.println("Invalid input.❌ Please enter a valid amount.");
                         scanner.next(); // Clear the invalid input
                     }
                     break;
@@ -89,7 +89,7 @@ public class Main {
                     scanner.close();
                     return;
                 default:
-                    System.out.println("Invalid choice. Please try again.");
+                    System.out.println("Invalid choice.❌ Please try again.");
             }
         }
     }

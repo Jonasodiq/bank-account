@@ -31,7 +31,7 @@ public class Account {
         if (amount > 0) {
             balance += amount;
         } else {
-            System.out.println("You can't deposit a negative amount");
+            System.out.println("You can't deposit a negative amount. ❌");
         }
     }
 
@@ -40,7 +40,7 @@ public class Account {
         if (amount > 0 && amount <= balance) {
             balance -= amount;
         } else {
-            System.out.println("Invalid amount or insufficient funds.");
+            System.out.println("Invalid amount or insufficient funds. ❌");
         }
     }
 
@@ -62,7 +62,7 @@ public class Account {
     // Method that returns a string with name and balance
     @Override
     public String toString() {
-        return "Name: " + name + ", Balance: " + balance;
+        return "Name: " + name + ", Balance: " + balance + " \uD83D\uDCB0";
     }
 
     // Metod för att överföra pengar till ett annat konto
@@ -70,9 +70,9 @@ public class Account {
         if (amount > 0 && amount <= this.balance) {
             this.withdraw(amount);
             toAccount.deposit(amount);
-            System.out.println("Transferred " + amount + " from " + this.name + " to " + toAccount.getName());
+            System.out.println("Transferred " + amount + " from " + this.name + " to \uD83D\uDC49\uD83C\uDFFC" + toAccount.getName()+ " ✅");
         } else {
-            System.out.println("Invalid amount or insufficient funds for transfer.");
+            System.out.println("Invalid amount or insufficient funds for transfer. ❌");
         }
     }
 
