@@ -26,6 +26,13 @@ public class Main {
         businessAccount.deposit(500);
         System.out.println(businessAccount);
 
+        //
+        SavingsAccount SA = new SavingsAccount("Charlie", 1000, 5);
+        System.out.println(SA);
+        // Lägg till
+        SA.addInterest();
+        System.out.println("Lagts till: " + SA);
+
         double currentBalance = savingsAccount.getBalance();
         System.out.println("Current balance: " + currentBalance);
 

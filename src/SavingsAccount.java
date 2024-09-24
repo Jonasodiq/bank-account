@@ -1,9 +1,9 @@
-public class SavingAccount extends Account {
+public class SavingsAccount extends Account {
     private double interestRate;
 
-    // Konstruktor som tar emot en räntesats
-    public SavingAccount(String name, double balance, double interestRate) {
-        super(name, balance); // Anropa superklassens konstruktor
+    // Konstruktör som tar emot en räntesats
+    public SavingsAccount(String name, double balance, double interestRate) {
+        super(name, balance); // Anropa superklassens konstruktör
         this.interestRate = interestRate;
     }
 
