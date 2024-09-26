@@ -16,11 +16,13 @@ public class BankService {
     // Metod för att visa menyn och hantera användarens val
     public void showMenu() {
         while (true) {
+            System.out.println("\n<<---MENU--->>");
             System.out.println("1. Deposit \uD83D\uDCB5");
             System.out.println("2. Withdraw \uD83D\uDCB8");
             System.out.println("3. Transfer \uD83D\uDCB8");
             System.out.println("4. Show Balance \uD83C\uDFE6");
-            System.out.println("5. Exit ➡\uFE0F \n<<---------->>");
+            System.out.println("5. Exit ➡\uFE0F");
+            System.out.println("\n<<---------->>");
             System.out.print("Choose an option: ");
 
             int choice = 0;
