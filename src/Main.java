@@ -1,104 +1,31 @@
-// 17 sep 2024 Jonas N Övning-2 Klasser och Objekt. Skapa en Bank Account klass
+// 17 sep 2024 Jonas N Övning-2 Klasser och Objekt. Skapa en Bank Account
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
-import java.util.InputMismatchException;
 
 public class Main {
     public static void main(String[] args) {
-
         Scanner scanner = new Scanner(System.in);
-        Account savingsAccount = new Account("Sara", 1000);
-        Account checkingAccount = new Account("Jonas", 500);
 
-        // Create an account using the default constructor
-        Account savingsAccountAlice = new Account();
-        savingsAccountAlice.setName("Alice");
-        savingsAccount.deposit(1000);
-        System.out.println(savingsAccountAlice);
+        // Skapa konton
+        Account savingsAccount = new Account("Alice", 1000);
+        Account checkingAccount = new Account("Erik", 500);
+        SavingsAccount businessAccount = new SavingsAccount("Bob", 1000, 5);
+        Account anotherAccount = new Account("Charlie", 2000);
 
-        // Create an account with balance
-        Account checkingAccountBob = new Account(500);
-        checkingAccountBob.setName("Bob");
-        checkingAccount.withdraw(200);
-        System.out.println(checkingAccountBob);
+        // Lägg till konton i en lista
+        List<Account> accounts = new ArrayList<>();
+        accounts.add(savingsAccount);
+        accounts.add(checkingAccount);
+        accounts.add(businessAccount);
+        accounts.add(anotherAccount);
 
-        // Create an account with name and balance
-        Account businessAccount = new Account("Charlie", 1500);
-        businessAccount.deposit(500);
-        System.out.println(businessAccount);
+        // Lägg till ränta till businessAccount
+        businessAccount.addInterest();
+        System.out.println("Lagts till: " + businessAccount + "\n<<---MENU--->>");
 
-        //
-        SavingsAccount SA = new SavingsAccount("Charlie", 1000, 5);
-        System.out.println(SA);
-        // Lägg till
-        SA.addInterest();
-        System.out.println("Lagts till: " + SA);
-
-        double currentBalance = savingsAccount.getBalance();
-        System.out.println("Current balance: " + currentBalance);
-
-        String currentName = businessAccount.getName();
-        System.out.println("Current account holder: " + currentName);
-
-        while (true) {
-            System.out.println("1. Deposit \uD83D\uDCB5");
-            System.out.println("2. Withdraw \uD83D\uDCB8");
-            System.out.println("3. Transfer \uD83D\uDD01");
-            System.out.println("4. Show Balance \uD83C\uDFE6");
-            System.out.println("5. Exit \uD83D\uDD1A");
-            System.out.print("Choose an option: ");
-
-            int choice = 0;
-            try {
-                choice = scanner.nextInt();
-            } catch (InputMismatchException e) {
-                System.out.println("Invalid input.❌ Please enter a number.");
-                scanner.next(); // Clear the invalid input
-                continue;
-            }
-
-            switch (choice) {
-                case 1:
-                    System.out.print("Enter amount to deposit: ");
-                    try {
-                        double depositAmount = scanner.nextDouble();
-                        savingsAccount.deposit(depositAmount);
-                    } catch (InputMismatchException e) {
-                        System.out.println("Invalid input.❌ Please enter a valid amount.");
-                        scanner.next(); // Clear the invalid input
-                    }
-                    break;
-                case 2:
-                    System.out.print("Enter amount to withdraw: ");
-                    try {
-                        double withdrawAmount = scanner.nextDouble();
-                        savingsAccount.withdraw(withdrawAmount);
-                    } catch (InputMismatchException e) {
-                        System.out.println("Invalid input.❌ Please enter a valid amount.");
-                        scanner.next(); // Clear the invalid input
-                    }
-                    break;
-                case 3:
-                    System.out.print("Enter amount to transfer: ");
-                    try {
-                        double transferAmount = scanner.nextDouble();
-                        savingsAccount.transferAmount(checkingAccount, transferAmount);
-                    } catch (InputMismatchException e) {
-                        System.out.println("Invalid input.❌ Please enter a valid amount.");
-                        scanner.next(); // Clear the invalid input
-                    }
-                    break;
-                case 4:
-                    System.out.println(savingsAccount);
-                    System.out.println(checkingAccount);
-                    break;
-                case 5:
-                    System.out.println("Exiting...");
-                    scanner.close();
-                    return;
-                default:
-                    System.out.println("Invalid choice.❌ Please try again.");
-            }
-        }
+        // Skapa en instans av BankService och visa menyn
+        BankService bankService = new BankService(scanner, accounts);
+        bankService.showMenu();
     }
 }
-

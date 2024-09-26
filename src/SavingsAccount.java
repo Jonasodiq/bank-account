@@ -1,4 +1,5 @@
 public class SavingsAccount extends Account {
+
     private double interestRate;
 
     // Konstruktör som tar emot en räntesats
@@ -10,7 +11,7 @@ public class SavingsAccount extends Account {
     // Metod för att lägga till ränta till balansen
     public void addInterest() {
         double interest = getBalance() * ( interestRate / 100);
-        deposit(interest);
+        deposit(interest); // ökar med beräknade räntebeloppet.
     }
 
     // Get & Setters
